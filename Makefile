@@ -4,7 +4,7 @@ CFLAGS		= 	-Wall -Wextra -Werror -fsanitize=address
 RM			= 	/bin/rm -f
 NAME		= 	fract_ol
 INCLUDES	= 	-Iheaders/
-SRCS		=   main.c functions.c $(shell find src/ -name '*.c')
+SRCS		=   main.c functions.c utils.c $(shell find src/ -name '*.c')
 OBJS		= 	$(SRCS:.c=.o)
 
 
