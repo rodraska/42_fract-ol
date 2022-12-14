@@ -1,4 +1,4 @@
-#include "fract_ol.h"
+#include "/home/rodrigo/Documents/42/fract-ol/fract_ol.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -20,7 +20,7 @@ int	main(void)
     mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
     img.img = mlx_new_image(mlx, 1920, 1080);
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-    ft_scp(&img);
+    ft_circle_gradient(&img, 0x00FFFF00);
     mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
     mlx_loop(mlx);
     return (0);

@@ -3,6 +3,7 @@
 
 # include "mlx_linux/mlx.h"
 # include <math.h>
+# include <stdio.h>
 
 typedef struct	s_data {
 	void	*img;
@@ -25,5 +26,10 @@ void    ft_yequals2x(t_data *img);
 void    ft_sin(t_data *img);
 void    ft_portugal(t_data *img);
 void	ft_scp(t_data *img);
+void    ft_circle_gradient(t_data *img, int color);
+
+int		ft_strlen(char *str);
+float   putnbr_base(int n, char *base);
+int		add_shade(int color, float ratio);
 
 #endif

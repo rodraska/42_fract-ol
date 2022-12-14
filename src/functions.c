@@ -1,4 +1,4 @@
-#include "fract_ol.h"
+#include "/home/rodrigo/Documents/42/fract-ol/fract_ol.h"
 
 void    ft_square(t_data *img, int x0, int y0, int xf, int yf, int color)
 {
@@ -117,7 +117,7 @@ void    ft_sin(t_data *img)
 void    ft_portugal(t_data *img)
 {
     ft_square(img, 0, 0, 750, 1080, 0x00339900);
-    ft_square(img, 750, 0, 1920, 1080, 0x00FF3300);
+    ft_square(img, 750, 0, 1920, 1080, 0x00FF0000);
     ft_circle(img, 220, 750, H / 2, 0x00FFFF00);
 }
 
@@ -137,4 +137,26 @@ void    ft_scp(t_data *img)
     ft_reta(img, 3 * W / 4 - 180, H / 4, 3 * W / 4 + 180, H / 4, 0x0066FF33);
     ft_reta(img, 3 * W / 4 + 180, H / 4, 3 * W / 4 + 180, H / 2, 0x0066FF33);
     ft_reta(img, 3 * W / 4 + 180, H / 2, 3 * W / 4 - 180, H / 2, 0x0066FF33);
+}
+
+void    ft_circle_gradient(t_data *img, int color)
+{
+    double  x;
+    double  y;
+    double  r;
+
+    x = -1;
+    y = -1;
+    r = 200;
+    while (sqrt(pow(++x, 2) + pow(y, 2)) < r)
+    {
+        while (sqrt(pow(x, 2) + pow(++y, 2)) < r)
+        {
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 + y, color);
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 - y, color);
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 - y, color);
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 + y, color);
+        }
+        y = -1;
+    }
 }
