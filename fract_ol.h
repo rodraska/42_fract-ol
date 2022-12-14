@@ -4,6 +4,7 @@
 # include "mlx_linux/mlx.h"
 # include <math.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 typedef struct	s_data {
 	void	*img;
@@ -20,7 +21,7 @@ typedef struct	s_data {
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void    ft_square(t_data *img, int x0, int y0, int xf, int yf, int color);
 void    ft_circle(t_data *img, int rf, int x0, int y0, int color);
-void    ft_circle2(t_data *img);
+void    ft_circle2(t_data *img, int color);
 void    ft_reta(t_data *img, float x1, float y1, float x2, float y2, int color);
 void    ft_yequals2x(t_data *img);
 void    ft_sin(t_data *img);
@@ -29,7 +30,7 @@ void	ft_scp(t_data *img);
 void    ft_circle_gradient(t_data *img, int color);
 
 int		ft_strlen(char *str);
-float   putnbr_base(int n, char *base);
 int		add_shade(int color, float ratio);
+int		get_opposite(int color);
 
 #endif

@@ -1,4 +1,4 @@
-#include "/home/rodrigo/Documents/42/fract-ol/fract_ol.h"
+#include "../fract_ol.h"
 
 int ft_strlen(char *str)
 {
@@ -10,14 +10,20 @@ int ft_strlen(char *str)
     return (i);
 }
 
-// float   putnbr_base(int n, char *base)
-// {
-//     int size;
+int get_opposite(int color)
+{
+    int final;
+    int red;
+    int blue;
+    int green;
 
-//     size = ft_strlen(base);
-//     if (n >= size)
-//         putnbr_base(n / 16, base);
-// }
+    red = abs((color / (int)pow(16, 4)) - 255);
+    green = abs(((color % (int)pow(16 ,4)) / (int)pow(16 ,2)) - 255);
+    blue = abs(((color % (int)pow(16, 4)) % (int)pow(16 , 2)) - 255);
+    final = red * pow(16, 4) + green * pow(16, 2) + blue;
+
+    return (final);
+}
 
 int add_shade(int color, float ratio)
 {

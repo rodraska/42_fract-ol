@@ -1,4 +1,4 @@
-#include "/home/rodrigo/Documents/42/fract-ol/fract_ol.h"
+#include "../fract_ol.h"
 
 void    ft_square(t_data *img, int x0, int y0, int xf, int yf, int color)
 {
@@ -31,7 +31,7 @@ void    ft_circle(t_data *img, int rf, int x0, int y0, int color)
     }
 }
 
-void    ft_circle2(t_data *img)
+void    ft_circle2(t_data *img, int color)
 {
     double  x;
     double  y;
@@ -44,10 +44,10 @@ void    ft_circle2(t_data *img)
     {
         while (sqrt(pow(x, 2) + pow(++y, 2)) < r)
         {
-            my_mlx_pixel_put(img, W / 2 + x, H / 2 + y, 0x0033FFCC);
-            my_mlx_pixel_put(img, W / 2 - x, H / 2 - y, 0x0033FFCC);
-            my_mlx_pixel_put(img, W / 2 + x, H / 2 - y, 0x0033FFCC);
-            my_mlx_pixel_put(img, W / 2 - x, H / 2 + y, 0x0033FFCC);
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 + y, color);
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 - y, color);
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 - y, color);
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 + y, color);
         }
         y = -1;
     }
@@ -152,10 +152,10 @@ void    ft_circle_gradient(t_data *img, int color)
     {
         while (sqrt(pow(x, 2) + pow(++y, 2)) < r)
         {
-            my_mlx_pixel_put(img, W / 2 + x, H / 2 + y, color);
-            my_mlx_pixel_put(img, W / 2 - x, H / 2 - y, color);
-            my_mlx_pixel_put(img, W / 2 + x, H / 2 - y, color);
-            my_mlx_pixel_put(img, W / 2 - x, H / 2 + y, color);
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 + y, add_shade(color, ((r - (sqrt(pow(x, 2) + pow(y, 2)))) / r)));
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 - y, add_shade(color, ((r - (sqrt(pow(x, 2) + pow(y, 2)))) / r)));
+            my_mlx_pixel_put(img, W / 2 + x, H / 2 - y, add_shade(color, ((r - (sqrt(pow(x, 2) + pow(y, 2)))) / r)));
+            my_mlx_pixel_put(img, W / 2 - x, H / 2 + y, add_shade(color, ((r - (sqrt(pow(x, 2) + pow(y, 2)))) / r)));
         }
         y = -1;
     }
