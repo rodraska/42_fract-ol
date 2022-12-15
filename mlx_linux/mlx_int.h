@@ -44,6 +44,7 @@
 # define LOCALHOST "localhost"
 # define ERR_NO_TRUECOLOR "MinilibX Error : No TrueColor Visual available.\n"
 # define WARN_SHM_ATTACH "MinilibX Warning : X server can't attach shared memory.\n"
+# define MLX_ERROR 1
 
 
 typedef	struct	s_xpm_col

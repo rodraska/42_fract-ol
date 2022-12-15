@@ -2,6 +2,7 @@
 # define FRACTOL_H
 
 # include "mlx_linux/mlx.h"
+# include "mlx_linux/mlx_int.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -14,9 +15,29 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+typedef struct s_mlx_data {
+	void	*mlx;
+	void	*mlx_win;
+}	t_mlx_data;
+
+typedef struct s_rect {
+	int	x;
+	int	y;
+	int width;
+	int height;
+	int color;
+}	t_rect;
+
+
 # define M_PI		3.14159265358979323846	/* pi */
 # define W 1920
 # define H 1080
+# define RED 0x00FF0000
+# define GREEN 0x0000FF00
+# define BLUE 0x000000FF
+# define YELLOW 0x00FFFF00
+# define WHITE 0x00FFFFFF
+# define BLACK 0x00000000
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void    ft_square(t_data *img, int x0, int y0, int xf, int yf, int color);
