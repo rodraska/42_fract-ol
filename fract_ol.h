@@ -6,6 +6,8 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 typedef struct	s_data {
 	void	*img;
@@ -18,7 +20,8 @@ typedef struct	s_data {
 typedef struct s_mlx_data {
 	void	*mlx;
 	void	*mlx_win;
-}	t_mlx_data;
+	t_data	img;
+}				t_mlx_data;
 
 typedef struct s_rect {
 	int	x;

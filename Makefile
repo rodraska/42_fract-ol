@@ -1,6 +1,6 @@
 #CC			= 	gcc -fsanitize=address -g
 CC			= 	gcc
-CFLAGS		= 	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror -fsanitize=address -g3
 RM			= 	/bin/rm -f
 NAME		= 	fract_ol
 INCLUDES	= 	-Iheaders/

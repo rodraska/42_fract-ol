@@ -86,7 +86,6 @@ void    ft_reta(t_data *img, float x1, float y1, float x2, float y2, int color)
             x--;
         y = m * x + n;
     }
-    
 }
 
 void    ft_yequals2x(t_data *img)
