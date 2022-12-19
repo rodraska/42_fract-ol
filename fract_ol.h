@@ -31,6 +31,13 @@ typedef struct s_rect {
 	int color;
 }	t_rect;
 
+typedef struct s_circle {
+	int x0;
+	int y0;
+	int	r;
+	int	color;
+}	t_circle;
+
 
 # define M_PI		3.14159265358979323846	/* pi */
 # define W 1920
@@ -42,7 +49,6 @@ typedef struct s_rect {
 # define WHITE 0x00FFFFFF
 # define BLACK 0x00000000
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void    ft_square(t_data *img, int x0, int y0, int xf, int yf, int color);
 void    ft_circle(t_data *img, int rf, int x0, int y0, int color);
 void    ft_circle2(t_data *img, int color);
@@ -52,6 +58,18 @@ void    ft_sin(t_data *img);
 void    ft_portugal(t_data *img);
 void	ft_scp(t_data *img);
 void    ft_circle_gradient(t_data *img, int color);
+
+void    render_background(t_data *img, int color);
+void    render_rect(t_data *img, t_rect rect);
+void    render_circle(t_data *img, t_circle circle);
+void    render_circle2(t_data *img, t_circle circle);
+void    render_portugal(t_data *img);
+
+int		handle_keypress(int keysym, t_mlx_data *data);
+int		handle_keyrelease(int keysym, void *data);
+int		handle_no_event(void *data);
+int		handle_input(int keysym, t_mlx_data *data);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 int		ft_strlen(char *str);
 int		add_shade(int color, float ratio);
