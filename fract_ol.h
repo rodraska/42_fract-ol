@@ -15,6 +15,8 @@ typedef struct	s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	double		offset_x;
+	double		offset_y;
 }				t_data;
 
 typedef struct s_mlx_data {
@@ -26,15 +28,15 @@ typedef struct s_mlx_data {
 typedef struct s_rect {
 	int	x;
 	int	y;
-	int width;
-	int height;
-	int color;
+	int	width;
+	int	height;
+	int	color;
 }	t_rect;
 
 typedef struct s_circle {
-	int x0;
-	int y0;
-	int	r;
+	double x0;
+	double y0;
+	double	r;
 	int	color;
 }	t_circle;
 
@@ -74,5 +76,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_strlen(char *str);
 int		add_shade(int color, float ratio);
 int		get_opposite(int color);
+int		in_bounds(int x, int y);
+void    check_offset(t_rect *rect);
 
 #endif

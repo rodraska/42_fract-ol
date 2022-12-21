@@ -41,7 +41,36 @@ int add_shade(int color, float ratio)
     return (final);
 }
 
-// int main(void)
-// {
-//     printf("%d\n", add_shade(0x00FF0000, 0.23));
-// }
+int in_bounds(int x, int y)
+{
+    if (x >= 0 && y >= 0 && x < W && y < H)
+        return (1);
+    return (0);
+}
+
+void    check_offset(t_rect *rect)
+{
+    if(in_bounds(rect->x, rect->y))
+        return ;
+    while (rect->x < 0)
+    {
+        rect->x += 0.5;
+        rect->width -= 0.5;
+    }
+    while (rect->y < 0)
+    {
+        rect->y += 0.5;
+        rect->height -= 0.5;
+    }
+    while (rect->x >= W)
+    {
+        rect->x -= 0.5;
+        rect->width += 0.5;
+    }
+    while (rect->y >= H)
+    {
+        rect->y -= 0.5;
+        rect->height += 0.5;
+    }
+    check_offset(rect);
+}
