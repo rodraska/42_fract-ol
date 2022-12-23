@@ -71,6 +71,30 @@ void    render_circle2(t_data *img, t_circle circle)
     }
 }
 
+void    render_quad(t_data *img, t_rect rect)
+{
+    int x;
+    int y;
+
+    x = -1;
+    y = -1;
+    while (++x < rect.width)
+    {
+        while (++y < rect.height)
+        {
+            if (in_bounds(rect.x + x, rect.y + y))
+                my_mlx_pixel_put(img, rect.x + x, rect.y + y, rect.color);
+            if (in_bounds(rect.x - x, rect.y - y))
+                my_mlx_pixel_put(img, rect.x - x, rect.y - y, rect.color);
+            if (in_bounds(rect.x + x, rect.y - y))
+                my_mlx_pixel_put(img, rect.x + x, rect.y - y, rect.color);
+            if (in_bounds(rect.x - x, rect.y + y))
+                my_mlx_pixel_put(img, rect.x - x, rect.y + y, rect.color);
+        }    
+        y = -1;
+    }
+}
+
 void    render_portugal(t_data *img)
 {
     render_rect(img, (t_rect){0, 0, 750, 1080, GREEN});

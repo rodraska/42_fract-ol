@@ -17,6 +17,7 @@ typedef struct	s_data {
 	int		endian;
 	double		offset_x;
 	double		offset_y;
+	double		scale;
 }				t_data;
 
 typedef struct s_mlx_data {
@@ -65,9 +66,11 @@ void    render_background(t_data *img, int color);
 void    render_rect(t_data *img, t_rect rect);
 void    render_circle(t_data *img, t_circle circle);
 void    render_circle2(t_data *img, t_circle circle);
+void    render_quad(t_data *img, t_rect rect);
 void    render_portugal(t_data *img);
 
 int		handle_keypress(int keysym, t_mlx_data *data);
+int		handle_mouse(int button, t_mlx_data *data);
 int		handle_keyrelease(int keysym, void *data);
 int		handle_no_event(void *data);
 int		handle_input(int keysym, t_mlx_data *data);

@@ -15,7 +15,20 @@ int	handle_keypress(int keysym, t_mlx_data *data)
 		data->img.offset_y -= 10;
 	if (keysym == XK_Down || keysym == XK_s)
 		data->img.offset_y += 10;
+	if (keysym == XK_plus)
+		data->img.scale *= 1.2;
+	if (keysym == XK_minus)
+		data->img.scale /= 1.2;
 	printf("Keypress: %d\n", keysym);
+	return (0);
+}
+
+int	handle_mouse(int button, t_mlx_data *data)
+{
+	if (button == 4)
+		data->img.scale *= 1.2;
+	if (button == 5)
+		data->img.scale /= 1.2;
 	return (0);
 }
 
