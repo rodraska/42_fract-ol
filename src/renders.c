@@ -2,8 +2,8 @@
 
 void    render_background(t_data *img, int color)
 {
-    double  i;
-    double  j;
+    int i;
+    int j;
 
     i = 0;
     while (i < H)

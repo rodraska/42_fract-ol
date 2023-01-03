@@ -41,10 +41,15 @@ typedef struct s_circle {
 	int	color;
 }	t_circle;
 
+typedef struct s_complex {
+	double	re;
+	double	im;
+}	complex;
+
 
 # define M_PI		3.14159265358979323846	/* pi */
-# define W 1920
-# define H 1080
+# define W 1500
+# define H 1000
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
@@ -70,7 +75,7 @@ void    render_quad(t_data *img, t_rect rect);
 void    render_portugal(t_data *img);
 
 int		handle_keypress(int keysym, t_mlx_data *data);
-int		handle_mouse(int button, t_mlx_data *data);
+int		handle_mouse(int button, int x, int y, t_mlx_data *data);
 int		handle_keyrelease(int keysym, void *data);
 int		handle_no_event(void *data);
 int		handle_input(int keysym, t_mlx_data *data);
@@ -81,5 +86,11 @@ int		add_shade(int color, float ratio);
 int		get_opposite(int color);
 int		in_bounds(int x, int y);
 void    check_offset(t_rect *rect);
+
+complex add(complex a, complex b);
+complex subtract(complex a, complex b);
+complex multiply(complex a, complex b);
+complex divide(complex a, complex b);
+double module(complex a);
 
 #endif

@@ -4,7 +4,7 @@ int	render(t_mlx_data *data)
 {
     if (data->mlx_win == NULL)
 		return (1);
-    render_background(&data->img, WHITE);
+    render_background(&data->img, BLACK);
 	//render_rect(&data->img, (t_rect){(100 + (data->img.offset_x * data->img.scale)) ,(100 + (data->img.offset_y * data->img.scale)) / (sqrt(data->img.scale) / 2), 100 * sqrt(data->img.scale), 100 * sqrt(data->img.scale), GREEN});
     render_quad(&data->img, (t_rect){150 + data->img.offset_x, 150 + data->img.offset_y, 100 * data->img.scale, 100 * data->img.scale, RED});
     render_circle(&data->img, (t_circle){W / 2 + data->img.offset_x, H / 2 + data->img.offset_y, 100 * data->img.scale, BLUE});
@@ -13,7 +13,7 @@ int	render(t_mlx_data *data)
 	return (0);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	t_mlx_data data;
 
@@ -39,4 +39,4 @@ int	main(void)
     mlx_destroy_display(data.mlx);
     free(data.mlx);
     return (0);
-}
+} */

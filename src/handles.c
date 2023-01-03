@@ -23,7 +23,7 @@ int	handle_keypress(int keysym, t_mlx_data *data)
 	return (0);
 }
 
-int	handle_mouse(int button, t_mlx_data *data)
+int	handle_mouse(int button, int x, int y, t_mlx_data *data)
 {
 	if (button == 4)
 		data->img.scale *= 1.2;
