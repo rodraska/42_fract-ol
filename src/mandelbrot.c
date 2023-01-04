@@ -2,35 +2,46 @@
 
 void    render_mandelbrot(t_data *img)
 {
-    int i;
-    int j;
-    int x;
-    int y;
+    double  i;
+    double  j;
+    double  x;
+    double  y;
+    int     n;
 
-    i = 0;
-    while (i < H)
+    i = -1;
+    n = -1;
+    while (++i < W)
     {
-        j = 0;
-        while (j < W)
+        j = -1;
+        while (++j < H)
         {
             x = -2 + i * 3 / W;
-            y = 1 - y * 2 / H;
+            y = 1 - j * 2 / H;
+            //printf(" x: %f,y: %f,n: %d", x, y, ++n);
+            if (ft_limit((complex){x, y}, (complex){0, 0}, 0) <= 2)
+                my_mlx_pixel_put(img, i, j, BLACK);
         }
     }
 }
 
-complex ft_limit(complex c, complex z, int n)
+double  ft_limit(complex c, complex z, int n)
 {
-    printf("ola");
-    if (n == 10)
-        return (z);
+    //printf("%d: ", n);
+    //printf("%f + %fi\n", z.re, z.im);
+    if (n == 1000 || module(z) > 2)
+        return (module(z));
     ft_limit(c, add(multiply(z, z), c), ++n);
-    
 }
 
-int main(void)
+/* int main(void)
 {
-    complex a = ft_limit((complex){1, 0.2}, (complex){0, 0}, 0);
+    complex a = add(multiply((complex){1, 3}, (complex){1, 3}), (complex){1, 1});
     printf("%f + %fi", a.re, a.im);
+
+    double  a = ft_limit((complex){-1, 0}, (complex){0, 0}, 0);
+    printf("%f ", a);
+
+    render_mandelbrot();
+    
     return (0);
-}
+} */

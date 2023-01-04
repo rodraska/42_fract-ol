@@ -93,4 +93,7 @@ complex multiply(complex a, complex b);
 complex divide(complex a, complex b);
 double module(complex a);
 
+void	render_mandelbrot(t_data *img);
+double	ft_limit(complex c, complex z, int n);
+
 #endif
