@@ -1,11 +1,12 @@
 #include "../fract_ol.h"
 
-void    render_mandelbrot(t_data *img)
+void    render_mandelbrot(t_data *img, t_mandelbrot mandel)
 {
     double  i;
     double  j;
     double  x;
     double  y;
+    double  lim;
     int     n;
 
     i = -1;
@@ -15,11 +16,15 @@ void    render_mandelbrot(t_data *img)
         j = -1;
         while (++j < H)
         {
-            x = -2 + i * 3 / W;
-            y = 1 - j * 2 / H;
+            x = mandel.x + i * 3 / mandel.width;
+            y = mandel.y - j * 2 / mandel.height;
+            lim = ft_limit((complex){x, y}, (complex){0, 0}, 0);
+            //printf("%d %f\n", ++n, lim);
             //printf(" x: %f,y: %f,n: %d", x, y, ++n);
-            if (ft_limit((complex){x, y}, (complex){0, 0}, 0) <= 2)
+            if (lim <= 2)
                 my_mlx_pixel_put(img, i, j, BLACK);
+            else
+                my_mlx_pixel_put(img, i, j, lim * 100);
         }
     }
 }
@@ -28,7 +33,7 @@ double  ft_limit(complex c, complex z, int n)
 {
     //printf("%d: ", n);
     //printf("%f + %fi\n", z.re, z.im);
-    if (n == 1000 || module(z) > 2)
+    if (n == 1000 || module(z) > 10)
         return (module(z));
     ft_limit(c, add(multiply(z, z), c), ++n);
 }

@@ -46,6 +46,13 @@ typedef struct s_complex {
 	double	im;
 }	complex;
 
+typedef struct s_mandelbrot {
+	double	x;
+	double	y;
+	double	width;
+	double	height;
+}	t_mandelbrot;
+
 
 # define M_PI		3.14159265358979323846	/* pi */
 # define W 1500
@@ -93,7 +100,7 @@ complex multiply(complex a, complex b);
 complex divide(complex a, complex b);
 double module(complex a);
 
-void	render_mandelbrot(t_data *img);
+void	render_mandelbrot(t_data *img, t_mandelbrot mandel);
 double	ft_limit(complex c, complex z, int n);
 
 #endif
