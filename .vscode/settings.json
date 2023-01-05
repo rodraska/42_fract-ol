@@ -3,5 +3,5 @@
       "fract_ol.h": "c",
       "keysym.h": "c"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "disabled"
 }

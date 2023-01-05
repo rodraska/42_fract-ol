@@ -8,9 +8,11 @@ void    render_mandelbrot(t_data *img, t_mandelbrot mandel)
     double  y;
     double  lim;
     int     n;
+    int     max;
 
     i = -1;
     n = -1;
+    max = 0;
     while (++i < W)
     {
         j = -1;
@@ -21,20 +23,35 @@ void    render_mandelbrot(t_data *img, t_mandelbrot mandel)
             lim = ft_limit((complex){x, y}, (complex){0, 0}, 0);
             //printf("%d %f\n", ++n, lim);
             //printf(" x: %f,y: %f,n: %d", x, y, ++n);
-            if (lim <= 2)
+            if (lim == 1000)
                 my_mlx_pixel_put(img, i, j, BLACK);
             else
-                my_mlx_pixel_put(img, i, j, lim * 100);
+                my_mlx_pixel_put(img, i, j, palette(lim));
         }
     }
+}
+
+int palette(double n)
+{
+    int color;
+
+    if (n > 30)
+        color =  256 *  n + 16704000;
+    else if (n <= 30)
+        color = 6.5 * n + 60;
+    /* if (n > 30)
+        color = RED;
+    else
+        color = BLUE;
+    return (color); */
 }
 
 double  ft_limit(complex c, complex z, int n)
 {
     //printf("%d: ", n);
     //printf("%f + %fi\n", z.re, z.im);
-    if (n == 1000 || module(z) > 10)
-        return (module(z));
+    if (n == 1000 || module(z) > 2)
+        return ((double)n);
     ft_limit(c, add(multiply(z, z), c), ++n);
 }
 

@@ -55,8 +55,8 @@ typedef struct s_mandelbrot {
 
 
 # define M_PI		3.14159265358979323846	/* pi */
-# define W 1500
-# define H 1000
+# define W 1350
+# define H 900
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
@@ -102,5 +102,6 @@ double module(complex a);
 
 void	render_mandelbrot(t_data *img, t_mandelbrot mandel);
 double	ft_limit(complex c, complex z, int n);
+int	palette(double n);
 
 #endif
