@@ -8,13 +8,13 @@ int	handle_keypress(int keysym, t_mlx_data *data)
         data->mlx_win = NULL;
     }
 	if (keysym == XK_Right || keysym == XK_d)
-		data->img.offset_x += 10;
+		data->img.offset_x += 0.1;
 	if (keysym == XK_Left || keysym == XK_a)
-		data->img.offset_x -= 10;
+		data->img.offset_x -= 0.1;
 	if (keysym == XK_Up || keysym == XK_w)
-		data->img.offset_y -= 10;
+		data->img.offset_y -= 0.1;
 	if (keysym == XK_Down || keysym == XK_s)
-		data->img.offset_y += 10;
+		data->img.offset_y += 0.1;
 	if (keysym == XK_plus)
 		data->img.scale *= 1.2;
 	if (keysym == XK_minus)
