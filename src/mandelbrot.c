@@ -16,7 +16,7 @@ void    render_mandelbrot(t_data *img)
             if (lim == 100)
                 my_mlx_pixel_put(img, i, j, BLACK);
             else
-                my_mlx_pixel_put(img, i, j, palette(lim));
+                my_mlx_pixel_put(img, i, j, RED);
         }
     }
 }

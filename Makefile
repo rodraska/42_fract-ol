@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 		@$(CC) $(^) $(MLX_FLAGS) -o $(@)
 
 %.o: %.c
-	@$(CC) $(INCLUDES) $(MLX_INCLUDE) -c $(^) -o $(@)
+	@$(CC) $(INCLUDES) $(MLX_INCLUDE) -O3 -c $(^) -o $(@)
 
 bonus: all
 
