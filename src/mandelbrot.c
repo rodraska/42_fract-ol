@@ -13,10 +13,10 @@ void    render_mandelbrot(t_data *img)
         while (++j < H)
         {
             lim = ft_limit((complex){coord(i, 'x', img), coord(j, 'y', img)}, (complex){0, 0});
-            if (lim == 100)
+            if (lim == 1000)
                 my_mlx_pixel_put(img, i, j, BLACK);
             else
-                my_mlx_pixel_put(img, i, j, RED);
+                my_mlx_pixel_put(img, i, j, palette(lim));
         }
     }
 }
@@ -35,6 +35,26 @@ float   coord(int c, char type, t_data *img)
 int ft_limit(complex c, complex z)
 {
     int n;
+    float   re;
+    float   im;
+
+    n = 0;
+    while (n < 1000)
+    {
+        re = pow(z.re, 2) - pow(z.im, 2) + c.re;
+        im = 2 * z.re * z.im + c.im;
+        if (fabs(re) > 4)
+            break;
+        z.re = re;
+        z.im = im;
+        n++;
+    }
+    return (n);
+}
+
+/* int ft_limit(complex c, complex z)
+{
+    int n;
 
     n = 0;
     while (n < 100)
@@ -46,7 +66,7 @@ int ft_limit(complex c, complex z)
     }
     return (n);
 }
-
+ */
 int palette(int n)
 {
     int color;
@@ -55,4 +75,9 @@ int palette(int n)
         color =  256 *  n + 16704000;
     else if (n <= 30)
         color = 6.5 * n + 60;
+    /* if (n > 30)
+        color = RED;
+    else if (n <= 30)
+        color = BLUE; */
+    return (color);
 }
