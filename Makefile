@@ -1,4 +1,3 @@
-#CC			= 	gcc -fsanitize=address -g
 CC			= 	gcc
 CFLAGS		= 	-Wall -Wextra -Werror -fsanitize=address -g3
 RM			= 	/bin/rm -f

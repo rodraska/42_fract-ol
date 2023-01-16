@@ -6,7 +6,7 @@
 /*   By: rreis-de <rreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:48:10 by rreis-de          #+#    #+#             */
-/*   Updated: 2023/01/11 16:00:40 by rreis-de         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:00:54 by rreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,32 +42,10 @@ typedef struct s_mlx_data {
 	t_data	img;
 }				t_mlx_data;
 
-typedef struct s_rect {
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rect;
-
-typedef struct s_circle {
-	double	x0;
-	double	y0;
-	double	r;
-	int		color;
-}	t_circle;
-
 typedef struct s_complex {
 	double	re;
 	double	im;
 }	t_complex;
-
-typedef struct s_mandelbrot {
-	double	x;
-	double	y;
-	double	width;
-	double	height;
-}	t_mandelbrot;
 
 # define M_PI		3.14159265358979323846	/* pi */
 # define W 900
@@ -87,11 +65,7 @@ int			handle_input(int keysym, t_mlx_data *data);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			ft_close(t_mlx_data *data);
 
-int			ft_strlen(char *str);
-int			add_shade(int color, float ratio);
-int			get_opposite(int color);
 int			in_bounds(int x, int y);
-void		check_offset(t_rect *rect);
 float		ft_seed(char *str);
 int			is_number(char *str);
 void		ft_error(void);

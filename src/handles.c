@@ -6,7 +6,7 @@
 /*   By: rreis-de <rreis-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:47:46 by rreis-de          #+#    #+#             */
-/*   Updated: 2023/01/11 17:53:22 by rreis-de         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:01:30 by rreis-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,6 @@ int	handle_mouse(int button, int x, int y, t_mlx_data *data)
 	}
 	return (0);
 }
-
-/* int	handle_keyrelease(int keysym, void *data)
-{
-	printf("Keyrelease: %d\n", keysym);
-	return (0);
-} */
-
-/* int	handle_no_event(void *data)
-{
-	return (0);
-}
- */
 
 int	handle_input(int keysym, t_mlx_data *data)
 {
